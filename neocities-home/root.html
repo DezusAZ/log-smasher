@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DZAZ | Cybersecurity</title>
+  <style>
+    :root {
+      --bg: #020617;          /* dark slate */
+      --card-bg: #020617;
+      --card-inner: #020815;  /* slightly lighter for interior */
+      --border: #1f2937;
+      --divider: #111827;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --link: #38bdf8;        /* muted cyan/blue, not neon */
+      --link-hover: #7dd3fc;
+      --accent-green: #22c55e;
+      --radius: 14px;
+      --shadow: 0 18px 40px rgba(0, 0, 0, 0.75);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
+    }
+
+    .page {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 32px 16px 40px;
+    }
+
+    header {
+      margin-bottom: 20px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background-color: #020617;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background-color: var(--accent-green);
+    }
+
+    .subtitle {
+      margin-top: 10px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 540px;
+    }
+
+    .card {
+      background: radial-gradient(circle at top left, #020c1b, var(--card-bg));
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 22px 22px 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .card-inner {
+      background-color: var(--card-inner);
+      border-radius: 10px;
+      border: 1px solid #0b1220;
+      padding: 18px 18px 20px;
+    }
+
+    section + section {
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid var(--divider);
+    }
+
+    h2 {
+      margin: 0 0 8px;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    p {
+      margin: 0 0 10px;
+      font-size: 0.98rem;
+      line-height: 1.6;
+    }
+
+    .muted {
+      color: var(--text-muted);
+    }
+
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 12px;
+      align-items: center;
+    }
+
+    .hero img {
+      max-width: 200px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      display: block;
+    }
+
+    .hero-text {
+      flex: 1 1 220px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .hero-text strong {
+      color: var(--text-main);
+    }
+
+    .links-group p {
+      margin: 4px 0;
+    }
+
+    .label {
+      font-weight: 500;
+      margin-right: 4px;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.15s ease;
+    }
+
+    a:hover {
+      color: var(--link-hover);
+      text-decoration: underline;
+    }
+
+    a:visited {
+      color: var(--link);
+    }
+
+    ul {
+      list-style: none;
+      margin: 4px 0 0;
+      padding-left: 0;
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 0;
+      font-size: 0.98rem;
+    }
+
+    li::before {
+      content: "▹";
+      font-size: 0.88rem;
+      line-height: 1;
+      color: var(--link);
+    }
+
+    @media (max-width: 768px) {
+      .page {
+        padding-top: 24px;
+      }
+      .card {
+        padding: 18px 16px 20px;
+      }
+      .hero {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="badge">
+        <span class="badge-dot"></span>
+        <span>DZAZ • Cybersecurity</span>
+      </div>
+      <p class="subtitle">
+        Portfolio of security research, tooling, and experiments across embedded systems, wireless, and the web.
+      </p>
+    </header>
+
+    <main class="card">
+      <div class="card-inner">
+        <!-- About -->
+        <section id="about">
+          <h2>About this site</h2>
+          <p>
+            This site aggregates my public-facing cybersecurity work: hardware projects, custom tooling,
+            walkthroughs, and experimental demos. It’s intended as a reference point for collaborators,
+            conferences, and prospective employers.
+          </p>
+          <div class="hero">
+            <img src="/pics/dzcrow.jpg" alt="DZAZ branding crow">
+            <div class="hero-text">
+              <p>
+                Current focus areas include embedded Linux (Raspberry Pi, uConsole), ESP32-based tooling,
+                RF/SDR workflows, NFC/BLE experiments, and offensive security tradecraft.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Links -->
+        <section id="links">
+          <h2>Links & channels</h2>
+          <div class="links-group">
+            <p>
+              <span class="label">Instagram:</span>
+              <a href="https://www.instagram.com/dz_az02?igsh=ZzV3Z2IwMzRkc3Z5&utm_source=qr" target="_blank" rel="noopener">
+                @dz_az02
+              </a>
+            </p>
+            <p>
+              <span class="label">Web store:</span>
+              <a href="https://www.hackedexistence.com" target="_blank" rel="noopener">
+                hackedexistence.com
+              </a>
+            </p>
+            <p>
+              <span class="label">Projects hub:</span>
+              <a href="https://linktr.ee/d_z_az" target="_blank" rel="noopener">
+                Linktree
+              </a>
+            </p>
+            <p>
+              <span class="label">YouTube:</span>
+              <a href="https://www.youtube.com/@D_Z_AZ" target="_blank" rel="noopener">
+                @D_Z_AZ
+              </a>
+            </p>
+            <p>
+              <span class="label">GitHub:</span>
+              <a href="https://www.github.com/DezusAZ" target="_blank" rel="noopener">
+                github.com/DezusAZ
+              </a>
+            </p>
+          </div>
+        </section>
+
+        <!-- Walkthroughs -->
+        <section id="walkthroughs">
+          <h2>Walkthroughs</h2>
+          <ul>
+            <li>
+              <a href="gqrxhbp0.html">GQRX Hackberry Setup Guide</a>
+            </li>
+            <li>
+              <a href="ucon-guide.html">uConsole Guide</a>
+            </li>
+
+            <!-- ONLY CHANGE -->
+            <li>
+              <a href="zimaapps.html">ZimaOS Third-Party App Store Guide</a>
+            </li>
+
+          </ul>
+        </section>
+
+        <!-- Experimental Projects -->
+        <section id="experimental-projects">
+          <h2>Experimental projects</h2>
+          <ul>
+            <li>
+              <a href="/nfc/">NFC Browser Recon Demo</a>
+            </li>
+            <li>
+              <a href="/log-smasher/">Log Smasher — combine wardriving logs for WiGLE</a>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

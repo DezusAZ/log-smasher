@@ -1,0 +1,5 @@
+WigleWifi-1.4,appRelease=2.30,model=G8,release=11,device=x,display=y,board=z,brand=LG
+MAC,SSID,AuthMode,FirstSeen,Channel,RSSI,CurrentLatitude,CurrentLongitude,AltitudeMeters,AccuracyMeters,Type
+AA:BB:CC:DD:EE:01,HomeNet,[WPA2-PSK-CCMP][ESS],2026-06-02 09:00:00,6,-60,33.1001,-111.9001,300,5,WIFI
+AA:BB:CC:DD:EE:04,Neighbor5G,[WPA3-SAE][ESS],2026-06-02 09:05:00,149,-65,33.4,-111.6,330,6,WIFI
+AA:BB:CC:DD:EE:01,HomeNet,[WPA2-PSK-CCMP][ESS],2026-06-02 09:00:00,6,-60,33.1001,-111.9001,300,5,WIFI

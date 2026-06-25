@@ -1,0 +1,37 @@
+name: log-smasher
+# Public image (CasaOS can pull it) + serving content bind-mounted from
+# /DATA/AppData/log-smasher — NOT from the project source. CasaOS "uninstall"
+# deletes an app's bind-mount source tree, so keeping the source out of the
+# mounts protects /DATA/projects/log-smasher. Run ./deploy.sh to (re)sync+install.
+services:
+  log-smasher:
+    image: nginx:alpine
+    container_name: log-smasher
+    restart: unless-stopped
+    ports:
+      - "8810:8810"
+    volumes:
+      - /DATA/AppData/log-smasher/static:/usr/share/nginx/html:ro
+      - /DATA/AppData/log-smasher/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    labels:
+      icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CjxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgcng9IjEzIiBmaWxsPSIjMGYxNjIyIi8+CjxwYXRoIGQ9Ik0zNCA2IEwxNiAzNiBIMzAgTDI2IDU4IEw0OCAyNiBIMzQgWiIgZmlsbD0iIzM5ZDk4YSIvPgo8ZyBmaWxsPSJub25lIiBzdHJva2U9IiMyYmIzZmYiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBvcGFjaXR5PSIuODUiPgo8cGF0aCBkPSJNOCAyNCBxNiAtNyAxMyAtOSIvPjxwYXRoIGQ9Ik01NiA0MCBxLTYgNyAtMTMgOSIvPgo8L2c+Cjwvc3ZnPgo="
+networks: {}
+x-casaos:
+  architectures:
+    - amd64
+  author: self
+  developer: self
+  category: Tools
+  description:
+    en_us: Combine many wardriving logs into one WiGLE-uploadable CSV. 100% client-side; optional direct upload to WiGLE.
+  tagline:
+    en_us: Smash your wardriving logs into one upload.
+  title:
+    custom: Log Smasher
+  icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CjxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgcng9IjEzIiBmaWxsPSIjMGYxNjIyIi8+CjxwYXRoIGQ9Ik0zNCA2IEwxNiAzNiBIMzAgTDI2IDU4IEw0OCAyNiBIMzQgWiIgZmlsbD0iIzM5ZDk4YSIvPgo8ZyBmaWxsPSJub25lIiBzdHJva2U9IiMyYmIzZmYiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBvcGFjaXR5PSIuODUiPgo8cGF0aCBkPSJNOCAyNCBxNiAtNyAxMyAtOSIvPjxwYXRoIGQ9Ik01NiA0MCBxLTYgNyAtMTMgOSIvPgo8L2c+Cjwvc3ZnPgo="
+  hostname: 100.102.144.73
+  index: /
+  port_map: "8810"
+  scheme: http
+  store_app_id: log-smasher
+  is_uncontrolled: false

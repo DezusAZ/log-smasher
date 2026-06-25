@@ -1,0 +1,78 @@
+:root{
+  --bg:#0c1018; --panel:#141b27; --panel2:#1b2433; --line:#26324a;
+  --txt:#e7edf6; --muted:#8aa0bf; --accent:#39d98a; --accent2:#2bb3ff;
+  --err:#ff6b6b; --ok:#39d98a; --radius:14px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--txt);
+  font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent2)}
+code{background:#0008;padding:.05em .4em;border-radius:6px;font-size:.85em;color:#cfe2ff}
+.wrap{max-width:780px;margin:0 auto;padding:32px 18px 64px}
+
+header h1{margin:0;font-size:2.4rem;letter-spacing:-.5px}
+.tag{margin:.3em 0 .2em;font-size:1.15rem;color:#cdd9ea}
+.privacy{margin:.6em 0 0;color:var(--muted);font-size:.92rem;
+  background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:.6em .8em}
+
+.dropzone{margin-top:22px;border:2px dashed var(--line);border-radius:var(--radius);
+  background:linear-gradient(180deg,#121a28,#0f1622);transition:.15s;cursor:default}
+.dropzone.drag{border-color:var(--accent);background:#13241d;transform:scale(1.005)}
+.dz-inner{padding:34px 20px;text-align:center}
+.dz-big{font-size:1.5rem;font-weight:700}
+.dz-sub{color:var(--muted);margin-top:.5em;font-size:.9rem;line-height:1.7}
+.dz-btns{margin-top:18px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+
+.btn{display:inline-block;cursor:pointer;border:1px solid var(--accent);
+  background:var(--accent);color:#04210f;font-weight:700;padding:.6em 1.1em;
+  border-radius:10px;font-size:.95rem;transition:.12s;text-align:center}
+.btn:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent;color:var(--txt);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--accent2)}
+.btn.big{padding:.8em 1.4em;font-size:1.05rem}
+.btn:disabled{opacity:.4;cursor:not-allowed;filter:none}
+
+.filelist{margin-top:16px;display:flex;flex-direction:column;gap:6px}
+.filerow{background:var(--panel);border:1px solid var(--line);border-radius:9px;
+  padding:.5em .8em;display:flex;gap:.5em;align-items:center;font-size:.9rem}
+.fname{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.muted{color:var(--muted)} .small{font-size:.85rem}
+.err{color:var(--err)} .ok{color:var(--ok)}
+
+.options{margin-top:18px;display:flex;flex-direction:column;gap:8px;
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+.opt{display:flex;align-items:center;gap:.55em;cursor:pointer;font-size:.95rem}
+.opt input{width:17px;height:17px;accent-color:var(--accent)}
+
+.stats:not(:empty){margin-top:18px;background:var(--panel);border:1px solid var(--line);
+  border-radius:var(--radius);padding:16px}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px}
+.stat{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:12px;text-align:center}
+.stat b{display:block;font-size:1.5rem;color:var(--accent)}
+.stat span{font-size:.8rem;color:var(--muted)}
+.chips{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px}
+.chip{background:var(--panel2);border:1px solid var(--line);border-radius:20px;
+  padding:.25em .8em;font-size:.82rem;color:#cdd9ea}
+.span{margin-top:10px;color:var(--muted);font-size:.86rem}
+
+.actions{margin-top:20px;display:flex;gap:10px;align-items:center}
+
+.upload{margin-top:22px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:4px 16px}
+.upload summary{cursor:pointer;padding:12px 0;font-weight:600}
+.upbody{padding:6px 0 16px;display:flex;flex-direction:column;gap:12px}
+.field{display:flex;flex-direction:column;gap:.4em;font-size:.9rem;color:var(--muted)}
+.field input{background:var(--bg);border:1px solid var(--line);border-radius:9px;
+  padding:.6em .8em;color:var(--txt);font-size:.95rem;font-family:ui-monospace,monospace}
+.uprow{display:flex;flex-wrap:wrap;gap:16px}
+.upstatus{font-size:.9rem;min-height:1.2em}
+.trust{background:#10221b;border:1px solid #1f5c41;border-radius:10px;padding:.7em .9em;
+  font-size:.86rem;color:#bfe8d3;line-height:1.55}
+.trust code{color:#d6ffe9}
+.tokenstatus{font-size:.85rem;min-height:1.1em}
+.finehint{line-height:1.6;border-top:1px solid var(--line);padding-top:10px}
+.link{background:none;border:none;color:var(--accent2);cursor:pointer;font:inherit;
+  padding:0;text-decoration:underline}
+.link:hover{filter:brightness(1.15)}
+
+footer{margin-top:40px;text-align:center;color:var(--muted);font-size:.82rem}
+@media(max-width:520px){header h1{font-size:2rem}.dz-big{font-size:1.25rem}}

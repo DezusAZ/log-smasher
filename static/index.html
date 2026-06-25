@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Log Smasher — combine wardriving logs for WiGLE</title>
+<meta name="description" content="Drop a pile of wardriving logs, get one combined WiGLE CSV. 100% in your browser — your data never leaves your device.">
+<link rel="icon" href="favicon.svg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>💥 Log&nbsp;Smasher</h1>
+    <p class="tag">Drop a pile of wardriving logs &rarr; get <b>one</b> combined file for WiGLE.</p>
+    <p class="privacy">🔒 Runs 100% in your browser. Your logs &amp; location data never leave your device — except the combined file you choose to upload.</p>
+  </header>
+
+  <section id="dropzone" class="dropzone">
+    <div class="dz-inner">
+      <div class="dz-big">Drop logs here</div>
+      <div class="dz-sub">WiGLE <code>.csv</code> / <code>.wiglecsv</code> · WiGLE&nbsp;app &amp; Kismet <code>.sqlite</code>/<code>.db</code>/<code>.kismet</code> · or a <code>.zip</code> of logs</div>
+      <div class="dz-btns">
+        <label class="btn">Pick files<input id="fileInput" type="file" multiple accept=".csv,.wiglecsv,.sqlite,.sqlite3,.db,.kismet,.zip" hidden></label>
+        <label class="btn ghost">Pick a folder<input id="folderInput" type="file" webkitdirectory multiple hidden></label>
+      </div>
+    </div>
+  </section>
+
+  <section id="filelist" class="filelist"></section>
+
+  <section class="options">
+    <label class="opt"><input type="checkbox" id="optDedup" checked> Remove exact duplicate rows</label>
+    <label class="opt"><input type="checkbox" id="optOnePerNet"> Collapse to one row per network <span class="muted">(keep strongest signal)</span></label>
+    <label class="opt"><input type="checkbox" id="optSort"> Sort by first-seen time</label>
+  </section>
+
+  <section id="stats" class="stats"></section>
+
+  <section class="actions">
+    <button id="downloadBtn" class="btn big" disabled>⬇ Download combined CSV</button>
+    <button id="resetBtn" class="btn ghost">Clear</button>
+  </section>
+
+  <details class="upload">
+    <summary>📡 Upload straight to WiGLE <span class="muted">(optional — needs your API token)</span></summary>
+    <div class="upbody">
+      <div class="trust">
+        <b>🔒 Your token is safe.</b> This whole page is static — <b>there is no server behind it</b>.
+        Your token goes <b>directly from your browser to <code>api.wigle.net</code></b> over HTTPS;
+        it never passes through this site, so the owner cannot see, log, or store it.
+        No analytics, no third-party scripts — open your browser's <b>View Source</b> or
+        <b>Network</b> tab to confirm the only outbound request goes to WiGLE.
+      </div>
+      <p class="muted small">Get your token at <a href="https://wigle.net/account" target="_blank" rel="noopener">wigle.net/account</a> &rarr; "Show my token" &rarr; copy the <b>Encoded for use</b> value.</p>
+      <label class="field">WiGLE "Encoded for use" token
+        <input id="apiToken" type="password" autocomplete="off" spellcheck="false" placeholder="QUlE...base64...">
+      </label>
+      <div class="uprow">
+        <label class="opt" title="Stored only in THIS browser (localStorage), on your device. Never sent anywhere."><input type="checkbox" id="rememberToken"> Remember on this device <span class="muted">(this browser only)</span></label>
+        <label class="opt"><input type="checkbox" id="donate" checked> Donate data to WiGLE (recommended)</label>
+      </div>
+      <div id="tokenStatus" class="tokenstatus"></div>
+      <button id="uploadBtn" class="btn big" disabled>📡 Upload to WiGLE</button>
+      <div id="uploadStatus" class="upstatus"></div>
+      <p class="muted small finehint">
+        <b>One-time use:</b> leave “Remember” unchecked — your token is held only in this tab's
+        memory for the upload and is gone when you close it.<br>
+        <b>Save it for next time:</b> tick “Remember on this device” — it's kept in
+        <i>this browser's</i> localStorage, on your machine only. Come back next week and it's
+        pre-filled; no one else (including this site's owner) can ever read it. Remove it anytime
+        with <b>Forget</b> above, or by clearing your browser data.
+      </p>
+    </div>
+  </details>
+
+  <footer>
+    <span>Output format: <code>WigleWifi-1.6</code></span> ·
+    <span>No tracking, no servers, no accounts</span>
+  </footer>
+
+</div>
+
+<script src="vendor/fflate.min.js"></script>
+<script src="vendor/sql-wasm.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

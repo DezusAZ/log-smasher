@@ -1,0 +1,4 @@
+.neocities_token
+*.token
+.icon-datauri
+dist/*.zip

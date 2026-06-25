@@ -1,0 +1,5 @@
+WigleWifi-1.6,appRelease=2.78,model=Pixel,release=14,device=raven,display=AP1A,board=raven,brand=Google
+MAC,SSID,AuthMode,FirstSeen,Channel,Frequency,RSSI,CurrentLatitude,CurrentLongitude,AltitudeMeters,AccuracyMeters,RCOIs,MfgrId,Type
+AA:BB:CC:DD:EE:01,HomeNet,[WPA2-PSK-CCMP][ESS],2026-06-01 10:00:00,6,2437,-55,33.1,-111.9,300,5,,,WIFI
+AA:BB:CC:DD:EE:02,"Café, Free",[ESS],2026-06-01 10:01:00,36,5180,-70,33.2,-111.8,310,8,,,WIFI
+AA:BB:CC:DD:EE:03,,[OPEN],2026-06-01 10:02:00,11,2462,-80,33.3,-111.7,320,10,,,WIFI
