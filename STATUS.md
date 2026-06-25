@@ -74,6 +74,19 @@ wigle.net/upload buttons instead of a cryptic error; (2) heads-up note in the up
 combining is automatic. One-click upload still works on the ZimaBoard copy (nginx, no CSP).
 Deployed to both hosts.
 
+
+## One-click upload everywhere — GitHub Pages (2026-06-25)
+Neocities CSP can't be loosened and blocks the page from reaching ANY external host (so a proxy
+wouldn't help either — the page can't even reach the proxy). Solution: also host on GitHub Pages,
+which sets NO blocking CSP → one-click WiGLE upload works AND .wasm/SQLite import works.
+- Repo DezusAZ/log-smasher now has docs/ (= static/) on main; Pages serves main:/docs.
+- `deploy-ghpages.sh` syncs static->docs + pushes (republishes on each run).
+- BLOCKED on user: token lacks Pages admin (403), so user must enable Pages once:
+  Settings -> Pages -> Source: Deploy from a branch -> main /docs -> Save.
+- Will be live at https://dezusaz.github.io/log-smasher/ (~1 min after enabling).
+- Three hosts now: Neocities (download-only, public homepage link), ZimaBoard :8810 (one-click,
+  private/self), GitHub Pages (one-click + SQLite, public).
+
 ## What's next (optional)
 - User: confirm the tile opens for you now, and (with your token) do one real WiGLE upload test
   (the authed POST couldn't be tested here; endpoint/CORS/response-parsing are in place).

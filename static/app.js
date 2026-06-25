@@ -497,5 +497,9 @@ function wire() {
     }
   });
   renderTokenStatus();
+  // The CSP heads-up only matters on hosts that block outbound API calls (e.g. Neocities).
+  // Everywhere upload actually works (GitHub Pages, self-hosted), keep it hidden.
+  const hu = el('headsUp');
+  if (hu && /(^|\.)neocities\.org$/i.test(location.hostname)) hu.hidden = false;
 }
 document.addEventListener('DOMContentLoaded', wire);
