@@ -64,6 +64,16 @@ index/app.js/style.css/favicon; homepage `/` still 200.
 - User will add a link from their homepage themselves later. Snippet to give them:
   `<a href="/log-smasher/">💥 Log Smasher — combine wardriving logs for WiGLE</a>`
 
+
+## Upload fix (2026-06-25) — Neocities CSP
+User hit "Network/CORS error: Failed to fetch" uploading from the Neocities site. Root cause:
+Neocities sets `CSP connect-src 'self'`, so the page can't call api.wigle.net (WiGLE's CORS is
+fine; the HOST blocks it). Fixes: (1) upload error now explains this + offers Download +
+wigle.net/upload buttons instead of a cryptic error; (2) heads-up note in the upload panel;
+(3) file picker now accepts .log/.txt (were hidden behind "view all files"); (4) dropzone notes
+combining is automatic. One-click upload still works on the ZimaBoard copy (nginx, no CSP).
+Deployed to both hosts.
+
 ## What's next (optional)
 - User: confirm the tile opens for you now, and (with your token) do one real WiGLE upload test
   (the authed POST couldn't be tested here; endpoint/CORS/response-parsing are in place).
